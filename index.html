@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding-top: 50px;
+        display: flex;
+        background-color: lightblue;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: darkblue;
+    }    
+    .menu{
+        align-items: center;
+        flex-direction: row;
+        margin: 0 auto;
+        border:2px solid ;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 650px;
+        min-width: 550px;
+    }
+    .secao{
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .coluna{
+        flex: 1;
+        justify-content: space-evenly;
+    }
+    .linha{
+        width: 100%;
+    }   
+    .button{
+        background-color: darkblue;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+</style>
+<body>
+    <div class="menu">
+        <div class="linha" style="background-color: darkblue; color: white;">
+            <h1 style="padding: 10px">Previsão do tempo</h1>
+            <br>
+        </div>
+        <div class="linha" style="text-align:center; padding-top:  50px; padding-bottom: 10px;">
+            <section class="secao">
+                <div class="coluna">
+                    1
+                </div>
+                <div class="coluna">
+                    2
+                </div>
+                <div class="coluna">
+                    2
+                </div>
+            </section>
+        </div>
+        <div class="linha" style="text-align:center; padding-top:  50px; padding-bottom: 10px;">
+            <section class="secao">
+                <div class="coluna">
+                    4
+                </div>
+                <div class="coluna">
+                    5
+                </div>
+                <div class="coluna">
+                    6
+                </div>
+                <div class="coluna">
+                    7
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script>
+    var luis;
+    
+    luis = buscarCotacao('USD','06/24/2022');
+
+ 
+    //Função que busca a previsão via API
+    async function buscarCotacao(moeda,data) {
+        var retornoCotacao;
+
+            //Solicitcao das ifnromações
+            var resposta = await fetch ("https://api.hgbrasil.com/weather?key=eda9a4e4&woeid=12581678&format=json-cors");
+            var resultado= await resposta.json();   
+            
+            
+
+            console.log("kkk"+resultado);
+        
+        //Retorna o valor da última cotação
+        return resultado;
+    }   
+    
+    
+</script>
+</html>
