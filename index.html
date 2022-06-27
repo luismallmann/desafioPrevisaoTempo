@@ -60,57 +60,259 @@
         </div>
         <div class="linha" style="text-align:center; padding-top:  50px; padding-bottom: 10px;">
             <section class="secao">
+                
                 <div class="coluna">
-                    1
+                    <div class="linha">
+                        <section class="secao">
+                            <div class="coluna">
+                                <img id="idImgAtual" alt="imagem clima" height="50px">
+                            </div>
+                            <div class="coluna">
+                                <output id="idTemperatura" style="font-size: 40px;"></output>
+                            </div>
+                            <div class="coluna">
+                                <div class="linha">
+                                    <output id="idUmidade"></output>
+                                </div>
+                                <div class="linha">
+                                    <output id="idVelVento"></output>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
+
                 <div class="coluna">
-                    2
+                  
+
+
                 </div>
+
                 <div class="coluna">
-                    2
+                    <div class="linha">
+                        <output id="idCidade"></output>     
+                    </div>
+                    <div class="linha">
+                        <output id="idDiaHora"></output>     
+                    </div>
+                    <div class="linha">
+                        <output id="idCondicao"></output>     
+                    </div>
                 </div>
             </section>
         </div>
         <div class="linha" style="text-align:center; padding-top:  50px; padding-bottom: 10px;">
             <section class="secao">
-                <div class="coluna">
-                    4
+                <div class="coluna" id="idDia0">
+                    <div class="linha">
+                        <output id="idDiaSemana0"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg0">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax0"></output>     
+                        <output id="idTempMin0"></output>   
+                    </div>
                 </div>
-                <div class="coluna">
-                    5
+                <div class="coluna" id="idDia1">
+                    <div class="linha">
+                        <output id="idDiaSemana1"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg1">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax1"></output>     
+                        <output id="idTempMin1"></output>   
+                    </div>
                 </div>
-                <div class="coluna">
-                    6
+                <div class="coluna" id="idDia2">
+                    <div class="linha">
+                        <output id="idDiaSemana2"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg2">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax2"></output>     
+                        <output id="idTempMin2"></output>   
+                    </div>
                 </div>
-                <div class="coluna">
-                    7
+                <div class="coluna" id="idDia3">
+                    <div class="linha">
+                        <output id="idDiaSemana3"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg3">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax3"></output>     
+                        <output id="idTempMin3"></output>   
+                    </div>
+                </div>
+                <div class="coluna" id="idDia4">
+                    <div class="linha">
+                        <output id="idDiaSemana4"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg4">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax4"></output>     
+                        <output id="idTempMin4"></output>   
+                    </div>
+                </div>
+                <div class="coluna" id="idDia5">
+                    <div class="linha">
+                        <output id="idDiaSemana5"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg5">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax5"></output>     
+                        <output id="idTempMin5"></output>   
+                    </div>
+                </div>
+                <div class="coluna" id="idDia6">
+                    <div class="linha">
+                        <output id="idDiaSemana6"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg6">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax6"></output>     
+                        <output id="idTempMin6"></output>   
+                    </div>
+                </div>
+                <div class="coluna" id="idDia7">
+                    <div class="linha">
+                        <output id="idDiaSemana7"></output>     
+                    </div>
+                    <div class="linha">
+                        <img alt="imagem clima" id="idImg7">
+                    </div>
+                    <div class="linha">
+                        <output id="idTempMax7"></output>     
+                        <output id="idTempMin7"></output>   
+                    </div>
                 </div>
             </section>
         </div>
     </div>
 </body>
 <script>
-    var luis;
-    
-    luis = buscarCotacao('USD','06/24/2022');
+    exibeHTML();
 
- 
     //Função que busca a previsão via API
-    async function buscarCotacao(moeda,data) {
-        var retornoCotacao;
+    async function buscarPrevisao() {
+        let retornoCotacao;
 
-            //Solicitcao das ifnromações
-            var resposta = await fetch ("https://api.hgbrasil.com/weather?key=eda9a4e4&woeid=12581678&format=json-cors");
-            var resultado= await resposta.json();   
-            
-            
+        //Solicitcao das informacoes
+        let resposta = await fetch ("https://api.hgbrasil.com/weather?key=eda9a4e4&woeid=12581678&format=json-cors");
+        let resultado= await resposta.json();   
 
-            console.log("kkk"+resultado);
-        
-        //Retorna o valor da última cotação
+        resultado = resultado.results;
+
+        //Retorna os dados da previsão
         return resultado;
-    }   
-    
-    
+    }     
+
+    //Função que trata os dados recebidos
+    async function minerarPrevisao(){
+        let previsaoAtual={};
+        let previsaoFutura=[];
+        let detalhamentoDia={};
+        let previsaoTempo={};
+
+        let dadosPrevisao = await buscarPrevisao();
+
+        //Separa as informaçoes referentes ao momento atual
+        previsaoAtual={
+            cidade: dadosPrevisao.city,
+            date: dadosPrevisao.date,
+            hora: dadosPrevisao.time,
+            situacao: dadosPrevisao.description,
+            temperatura: dadosPrevisao.temp,
+            umidade: dadosPrevisao.humidity,
+            velVento: dadosPrevisao.wind_speedy,
+            condicao: dadosPrevisao.condition_slug,
+            img: ""+dadosPrevisao.condition_slug +".png"
+        };
+
+        for(let i=0; i<8;i++){
+            //Busca informações de um dia
+            let diaAnalisado = dadosPrevisao.forecast[i];
+            //Grava as informações no objeto detalhamento dia
+            detalhamentoDia={
+                pos: i,
+                date: diaAnalisado.date,
+                diaSemana: diaAnalisado.weekday,
+                tempMax: diaAnalisado.max,
+                tempMin: diaAnalisado.min,
+                situacao: diaAnalisado.description,
+                condicao: diaAnalisado.condition,
+                img: "img/"+diaAnalisado.condition+".png"
+            };
+
+            //Grava o detalhamento do dia em um array composto dos objetos dos próximos dias
+            previsaoFutura.push(detalhamentoDia);
+        }
+
+        previsaoTempo={
+            atual: previsaoAtual, 
+            futura: previsaoFutura
+        };
+
+        //Retorna os objetos com a previsão do tempo;
+        return previsaoTempo;
+    }
+
+    //Função responsável por exibir os elementos no HTML. Subdividida em dia atual e dias futuros
+    async function exibeHTML(){
+        let dadosPrevisao;
+        let previsaoDia;
+        
+        dadosPrevisao = await minerarPrevisao();
+
+        previsaoDia = dadosPrevisao.atual;
+        previsaoProximos = dadosPrevisao.futura;
+        
+        htmlAtual(previsaoDia);
+        htmlProximosDias(previsaoProximos);
+   
+    }
+     //Função responsável por exibir o dia atual
+    function htmlAtual(previsao){
+        document.getElementById("idTemperatura").value = previsao.temperatura+"°C";
+        document.getElementById("idUmidade").value = previsao.umidade + "%";
+        document.getElementById("idVelVento").value = previsao.velVento;
+        document.getElementById("idCidade").value = previsao.cidade;
+        document.getElementById("idDiaHora").value = previsao.hora+" - "+ previsao.date;
+        document.getElementById("idCondicao").value = previsao.situacao;
+
+        switch(previsao.condicao){
+            case 'clear_night': document.getElementById("idImgAtual").src = "img/clear_night.png"; break;
+            case 'clear_day': document.getElementById("idImgAtual").src = "img/clear_day.png"; break;
+            case 'cloudly_day': document.getElementById("idImgAtual").src = "img/cloudly_day.png"; break;
+            case 'cloudly_night': document.getElementById("idImgAtual").src = "img/cloudly_night.png"; break;
+            case 'rain': document.getElementById("idImgAtual").src = "img/rain.png"; break;
+            case 'rain_day': document.getElementById("idImgAtual").src = "img/rain_day.png"; break;
+            case 'rain_night': document.getElementById("idImgAtual").src = "img/rain_night.png"; break;
+            default: document.getElementById("idImgAtual").src = "";
+        }
+    }
+
+    //Função responsável por exibir os dias futuros
+    async function htmlProximosDias(previsao){
+         for await(let previsaoDia of previsao){
+            document.getElementById("idDiaSemana"+previsaoDia.pos).value = previsaoDia.diaSemana;
+            document.getElementById("idTempMax"+previsaoDia.pos).value = previsaoDia.tempMax + "°";
+            document.getElementById("idTempMin"+previsaoDia.pos).value = previsaoDia.tempMin + "°";
+            document.getElementById("idImg"+previsaoDia.pos).src = previsaoDia.img;
+        }
+    }
 </script>
 </html>
