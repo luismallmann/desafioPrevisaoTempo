@@ -14,12 +14,13 @@
     body{
         padding-top: 50px;
         display: flex;
-        background-color: lightblue;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: darkblue;
+        color:slategrey;
+        background-color: lightgrey;
     }    
     .menu{
         align-items: center;
+        background-color: white;
         flex-direction: row;
         margin: 0 auto;
         border:2px solid ;
@@ -51,10 +52,13 @@
         display: inline-block;
         font-size: 16px;
     }
+    .imgClima{
+        height: 50px;
+    }
 </style>
 <body>
     <div class="menu">
-        <div class="linha" style="background-color: darkblue; color: white;">
+        <div class="linha" style="background-color: slategrey; color: white;">
             <h1 style="padding: 10px">Previsão do tempo</h1>
             <br>
         </div>
@@ -120,7 +124,7 @@
                         <output id="idDiaSemana1"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg1">
+                        <img alt="imagem clima" id="idImg1" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax1"></output>     
@@ -132,7 +136,7 @@
                         <output id="idDiaSemana2"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg2">
+                        <img alt="imagem clima" id="idImg2" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax2"></output>     
@@ -144,7 +148,7 @@
                         <output id="idDiaSemana3"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg3">
+                        <img alt="imagem clima" id="idImg3"class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax3"></output>     
@@ -156,7 +160,7 @@
                         <output id="idDiaSemana4"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg4">
+                        <img alt="imagem clima" id="idImg4" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax4"></output>     
@@ -168,7 +172,7 @@
                         <output id="idDiaSemana5"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg5">
+                        <img alt="imagem clima" id="idImg5" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax5"></output>     
@@ -180,7 +184,7 @@
                         <output id="idDiaSemana6"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg6">
+                        <img alt="imagem clima" id="idImg6" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax6"></output>     
@@ -192,7 +196,7 @@
                         <output id="idDiaSemana7"></output>     
                     </div>
                     <div class="linha">
-                        <img alt="imagem clima" id="idImg7">
+                        <img alt="imagem clima" id="idImg7" class="imgClima">
                     </div>
                     <div class="linha">
                         <output id="idTempMax7"></output>     
@@ -297,6 +301,7 @@
             case 'clear_night': document.getElementById("idImgAtual").src = "img/clear_night.png"; break;
             case 'clear_day': document.getElementById("idImgAtual").src = "img/clear_day.png"; break;
             case 'cloudly_day': document.getElementById("idImgAtual").src = "img/cloudly_day.png"; break;
+            case 'cloud': document.getElementById("idImgAtual").src = "img/cloud.png"; break;
             case 'cloudly_night': document.getElementById("idImgAtual").src = "img/cloudly_night.png"; break;
             case 'rain': document.getElementById("idImgAtual").src = "img/rain.png"; break;
             case 'rain_day': document.getElementById("idImgAtual").src = "img/rain_day.png"; break;
